@@ -1,0 +1,39 @@
+  columns:
+    Restaurant ID: int64  
+    Restaurant_Name: object 
+    Country Code: int64  
+    City: object 
+    Address: object 
+    Locality: object 
+    Locality Verbose: object 
+    lon: float64
+    lat: float64
+    Cuisines: object 
+    cost_for_two: int64  
+    Currency: object 
+    Has Table booking: object 
+    Has Online delivery: object 
+    Is delivering now: object 
+    Switch to order menu: object 
+    Price_Range: int64  
+    Rating: float64
+    Rating color: object 
+    Review: object 
+    Votes: int64  
+
+
+  numerical_columns: 
+    - cost_for_two   
+    - Price_Range    
+    - Votes 
+
+  categorical_columns:
+    - Cuisines  
+    - Has Table booking  
+    - Has Online delivery  
+    - Is delivering now  
+    - Switch to order menu  
+    - Rating color  
+    - Review  
+  
+  target_column: Rating
