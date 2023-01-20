@@ -150,6 +150,7 @@ class Configuration:
         except Exception as e:
             raise RestaurantRatingException(e,sys) from e
     
+    
     def get_training_pipeline_config(self) ->TrainingPipelineConfig:
         try:
             training_pipeline_config = self.config_info[TRAINING_PIPELINE_CONFIG_KEY]
