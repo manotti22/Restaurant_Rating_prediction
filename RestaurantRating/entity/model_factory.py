@@ -4,6 +4,7 @@ from pyexpat import model
 import numpy as np
 import yaml
 from RestaurantRating.exception import RestaurantRatingException
+from RestaurantRating.component.data_transformation import DataTransformation
 import os
 import sys
 
@@ -11,6 +12,7 @@ from collections import namedtuple
 from typing import List
 from RestaurantRating.logger import logging
 from sklearn.metrics import r2_score,mean_squared_error
+
 GRID_SEARCH_KEY = 'grid_search'
 MODULE_KEY = 'module'
 CLASS_KEY = 'class'

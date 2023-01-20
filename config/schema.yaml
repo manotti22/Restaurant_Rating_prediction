@@ -28,7 +28,7 @@
     - Votes 
 
   categorical_columns:
-    - Cuisines  
+    #- Cuisines  
     - Has Table booking  
     - Has Online delivery  
     - Is delivering now  

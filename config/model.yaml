@@ -2,7 +2,7 @@ grid_search:
   class: GridSearchCV
   module: sklearn.model_selection
   params:
-    cv: 4
+    cv: 5
     verbose: 2
 model_selection:
   module_0:
@@ -21,8 +21,5 @@ model_selection:
       min_samples_leaf: 2
     search_param_grid:
       min_samples_leaf:
-      - 4
-      - 6
-      - 12
-      n_estimators:
-      -100
+      - 2
+      

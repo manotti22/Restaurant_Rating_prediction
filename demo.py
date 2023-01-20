@@ -2,8 +2,7 @@ from RestaurantRating.pipeline.pipeline import Pipeline
 from RestaurantRating.logger import logging
 from RestaurantRating.exception import RestaurantRatingException
 import warnings
-warnings.simplefilter("ignore", UserWarning)
-
+warnings
 def main():
     try:
 

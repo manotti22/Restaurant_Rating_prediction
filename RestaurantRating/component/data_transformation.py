@@ -71,11 +71,11 @@ class DataTransformation:
         except Exception as e:
             raise RestaurantRatingException(e,sys) from e   
 
-
     def initiate_data_transformation(self)->DataTransformationArtifact:
         try:
             logging.info(f"Obtaining preprocessing object.")
             preprocessing_obj = self.get_data_transformer_object()
+  
 
 
             logging.info(f"Obtaining training and test file path.")
@@ -96,10 +96,10 @@ class DataTransformation:
 
 
             logging.info(f"Splitting input and target feature from training and testing dataframe.")
-            input_feature_train_df = train_df.drop(columns=[target_column_name],axis=1)
+            input_feature_train_df = train_df.drop(columns=[target_column_name],axis=0)
             target_feature_train_df = train_df[target_column_name]
 
-            input_feature_test_df = test_df.drop(columns=[target_column_name],axis=1)
+            input_feature_test_df = test_df.drop(columns=[target_column_name],axis=0)
             target_feature_test_df = test_df[target_column_name]
             
 
@@ -108,10 +108,14 @@ class DataTransformation:
             input_feature_test_arr = preprocessing_obj.transform(input_feature_test_df)
 
 
-            train_arr = np.c_[input_feature_train_arr, np.array(target_feature_train_df)[0]]
+            train_arr = np.c_[input_feature_train_arr, np.array(target_feature_train_df)]
+            test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
-            test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)[0]]
-            
+            #train_arr = np.c_[np.array([input_feature_train_arr]), np.array([target_feature_train_df])]
+            #train_target_arr= np.array(target_feature_train_df)
+            #test_arr = np.c_[np.array([input_feature_test_arr]), np.array([target_feature_test_df])]
+            #test_target_arr= np.array(target_feature_test_df)
+
             transformed_train_dir = self.data_transformation_config.transformed_train_dir
             transformed_test_dir = self.data_transformation_config.transformed_test_dir
 
@@ -123,8 +127,8 @@ class DataTransformation:
 
             logging.info(f"Saving transformed training and testing array.")
             
-            save_numpy_array_data(file_path=transformed_train_file_path,array=train_arr)
-            save_numpy_array_data(file_path=transformed_test_file_path,array=test_arr)
+            save_numpy_array_data(file_path=transformed_train_file_path,array=train_arr)#,array2#=train_target_arr)
+            save_numpy_array_data(file_path=transformed_test_file_path,array=test_arr)#,array2=test_target_arr)
 
             preprocessing_obj_file_path = self.data_transformation_config.preprocessed_object_file_path
 
