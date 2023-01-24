@@ -4,7 +4,6 @@ training_pipeline_config:
 
 data_ingestion_config:
   dataset_download_url: https://raw.githubusercontent.com/mrinalmayank7/datascience/main/zom.csv
-  #dataset_download_url: https://raw.githubusercontent.com/manotti22/Restaurant_Rating_prediction/main/Zomato_csv.csv
   raw_data_dir: raw_data
   tgz_download_dir: tgz_data
   ingested_dir: ingested_data

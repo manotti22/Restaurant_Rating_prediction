@@ -1,0 +1,5 @@
+best_model:
+  model_path: C:\Users\HPr\Restaurant_Rating_prediction\RestaurantRating\artifact\model_trainer\2023-01-20-22-37-38\trained_model\model.pkl
+history:
+  2023-01-20-22-37-38:
+    model_path: C:\Users\HPr\Restaurant_Rating_prediction\RestaurantRating\artifact\model_trainer\2023-01-20-22-37-38\trained_model\model.pkl
