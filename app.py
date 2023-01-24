@@ -5,7 +5,7 @@ import pip
 from RestaurantRating.util.util import read_yaml_file, write_yaml_file
 from matplotlib.style import context
 from RestaurantRating.logger import logging
-from RestaurantRating.exception import HousingException
+from RestaurantRating.exception import RestaurantRatingException
 import os, sys
 import json
 from RestaurantRating.config.configuration import Configuration
@@ -27,16 +27,16 @@ MODEL_DIR = os.path.join(ROOT_DIR, SAVED_MODELS_DIR_NAME)
 
 from RestaurantRating.logger import get_log_dataframe
 
-RESTAURANT_RATING_DATA_KEY = "restaurant_rating_data"
-RESTAURANT_RATING_VALUE_KEY = "restaurant_rating_value"
+RESTAURANT_RATING_DATA_KEY = "Restaurant_Rating_data"
+RATING_VALUE_KEY = "Rating"
 
 app = Flask(__name__)
 
 
-@app.route('/artifact', defaults={'req_path': 'Restaurant_Rating'})
+@app.route('/artifact', defaults={'req_path': 'RestaurantRating'})
 @app.route('/artifact/<path:req_path>')
 def render_artifact_dir(req_path):
-    os.makedirs("Restaurant_Rating", exist_ok=True)
+    os.makedirs("RestaurantRating", exist_ok=True)
     # Joining the base and the requested path
     print(f"req_path: {req_path}")
     abs_path = os.path.join(req_path)
@@ -104,27 +104,19 @@ def train():
 def predict():
     context = {
         RESTAURANT_RATING_DATA_KEY: None,
-        RESTAURANT_RATING_VALUE_KEY: None
+        RATING_VALUE_KEY: None
     }
 
     if request.method == 'POST':
-        Restaurant_Name: request.form['Restaurant_Name'] 
-        City: request.form['City'] 
-        Address: request.form['Address']
-        Locality: request.form['Locality'] 
-        Locality_Verbose: request.form['Locality_Verbose'] 
-        lon: float(request.form['lon'])
-        lat: float(request.form['lat'])
         cost_for_two: int(request.form['cost_for_two'])  
-        Currency:request.form['Currency'] 
+        Price_Range: int(request.form['Price_Range'])  
+        Votes: int(request.form['Votes'])
         Has_Table_booking: request.form['Has_Table_booking'] 
         Has_Online_delivery:request.form['Has_Online_delivery']
         Is_delivering_now: request.form['Is_delivering_now'] 
         Switch_to_order_menu: request.form['Switch_to_order_menu'] 
-        Price_Range: int(request.form['Price_Range'])  
         Rating_color: request.form['Rating_color'] 
         Review: request.form['Review']
-        Votes: int(request.form['Votes'])
 
         
 
@@ -141,10 +133,10 @@ def predict():
                                    )
         Restaurant_rating_df = Restaurant_Rating_data.get_RestaurantRating_input_data_frame()
         RestaurantRating_predictor = RestaurantRatingPredictor(model_dir=MODEL_DIR)
-        restaurant_rating_value = RestaurantRating_predictor.predict(X=Restaurant_rating_df)
+        Rating = RestaurantRating_predictor.predict(X=Restaurant_rating_df)
         context = {
             RESTAURANT_RATING_DATA_KEY: Restaurant_Rating_data.get_RestaurantRating_data_as_dict(),
-            RESTAURANT_RATING_VALUE_KEY: restaurant_rating_value,
+            RATING_VALUE_KEY: Rating,
         }
         return render_template('predict.html', context=context)
     return render_template("predict.html", context=context)

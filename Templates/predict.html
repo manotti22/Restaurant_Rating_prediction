@@ -1,0 +1,186 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+<title>Restaurant Rating Predictor</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+
+        <form action="/predict" method="post">
+            <legend>Restaurant Rating Form</legend>
+            <div class="mb-3">
+                <label class="form-label">cost_for_two</label>
+                <input class="form-control" type="text" name="cost_for_two" placeholder="Enter a value of cost_for_two"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Price_Range</label>
+                <input class="form-control" type="text" name="Price_Range" placeholder="Enter a Price_Range"
+                required >
+                
+              
+               
+            </div>
+            <div class="mb-3">
+                <label class="form-label"> Votes</label>
+                <input class="form-control" type="text" name=" Votes" placeholder="Enter your Votes" 
+                required >
+                    
+
+            </div>
+            <div class="mb-3">
+                 <label class="form-label">Has_Table_booking</label>
+                 <select class="form-control" type="text" name="Has_Table_booking" placeholder="Enter a value "
+                  required >
+                    
+                 <option value="yes">
+                        &lt;yes
+                    
+                </option>
+                <option value="No">
+                        No
+                </option> 
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Has_Online_delivery</label>
+                <select class="form-control" type="text" name="Has_Online_delivery" placeholder="Enter your value"
+                    required >
+                    <option value="yes">
+                        &lt;yes
+                    
+                    </option>
+                    <option value="No">
+                        No
+                    </option> 
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Is_delivering_now</label>
+                <select class="form-control" type="text" name="Is_delivering_now" placeholder="Enter your value " 
+                required >
+                <option value="yes">
+                    &lt;yes
+                
+                </option>
+                <option value="No">
+                    No
+                </option> 
+
+
+            </div>
+           
+            <div class="mb-3">
+                <label class="form-label">Switch_to_order_menu</label>
+                <select class="form-control" type="text" name="Switch_to_order_menu" placeholder="Enter your value "
+                    required >
+                    <option value="yes">
+                        &lt;yes
+                    
+                    </option>
+                    <option value="No">
+                        No
+                    </option> 
+            
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Rating_color</label>
+                <select class="form-control" type="text" name="Rating_color" placeholder="Enter your value  "
+                    required >
+                    <option value="Dark Green">
+                        &lt;Dark Green
+                    </option>
+                    <option value="Green">
+                        Green
+                    </option>
+                    <option value="Yellow">
+                        Yellow
+                    </option>
+                    <option value="White">
+                        White
+                    </option>
+                    <option value="Orange">
+                    White
+                   </option>    
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Revieu</label>
+                <input class="form-control" type="text" name="Revieu" placeholder="Enter your value"
+                    required />
+                    <option value="Excellent">
+                        &lt;Excellent
+                    </option>
+                    <option value="Very Good">
+                        Very Good
+                    </option>
+                    <option value="Good">
+                        Good
+                    </option>
+                    <option value="Average">
+                        Average
+                    </option>
+                    <option value="Not rated">
+                        Not rated
+                   </option>    
+            </div>
+       
+            </div>
+
+                </select>
+            </div>
+            <div class="mb-3">
+
+                <input class="btn btn-primary" type="submit" value="Predict Restaurant Rating" required />
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+              Restaurant Rating Prediction
+            </div>
+            <div class="card-body">
+        {% if context['Restaurant_Rating_data'] is not none %}
+        <table class="table table-striped">
+            <caption>Restaurant Rating Prediction </caption>
+            <tr>
+                <th>Input Feature</th>
+                <th>Feature Value</th>
+
+            </tr>
+            {% for column,value in context['Restaurant_Rating_data'].items() %}
+
+
+            <tr>
+                <td>{{column}}</td>
+                <td>{{value[0]}}</td>
+            </tr>
+
+            {% endfor %}
+            <tr>
+
+                <td>Rating </td>
+                <td>
+                    {{ context['Rating'] }}
+                </td>
+            </tr>
+        </table>
+
+        {% else %}
+       
+              <h5 class="card-title">Submit Form</h5>
+              <p class="card-text">Kindly provide necessary information to predict Restaurant Rating</p>
+            
+         
+
+        {% endif %}
+        Go to <a href="/" class="btn btn-primary">Home</a>
+    </div>
+</div>
+    </div>
+
+    {% endblock %}

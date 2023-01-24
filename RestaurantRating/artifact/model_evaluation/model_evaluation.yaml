@@ -1,5 +1,9 @@
 best_model:
-  model_path: C:\Users\HPr\Restaurant_Rating_prediction\RestaurantRating\artifact\model_trainer\2023-01-20-22-37-38\trained_model\model.pkl
+  model_path: C:\Users\HPr\Restaurant_Rating_prediction\RestaurantRating\artifact\model_trainer\2023-01-24-14-36-39\trained_model\model.pkl
 history:
   2023-01-20-22-37-38:
     model_path: C:\Users\HPr\Restaurant_Rating_prediction\RestaurantRating\artifact\model_trainer\2023-01-20-22-37-38\trained_model\model.pkl
+  2023-01-24-14-31-18:
+    model_path: C:\Users\HPr\Restaurant_Rating_prediction\RestaurantRating\artifact\model_trainer\2023-01-20-22-37-38\trained_model\model.pkl
+  2023-01-24-14-36-39:
+    model_path: C:\Users\HPr\Restaurant_Rating_prediction\RestaurantRating\artifact\model_trainer\2023-01-24-14-31-18\trained_model\model.pkl
