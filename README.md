@@ -10,12 +10,19 @@ The basic idea of analyzing the dataset is to get a fair idea about the factors 
 From all the Data available, we can bring out some neat insights or conclusions such as
 
 Which franchise has the highest number of Restaurants?
+
 How many Restaurants are accepting online orders?
+
 How many have a book table facility?
+
 Which location has the highest number of Restaurants?
+
 How many types of Restaurant types are there?
+
 What is the most liked Restaurant type?
+
 What is the Average cost for 2 persons?
+
 What is the most liked Dish type?
 
 ### Software and Account Requirement.
@@ -63,6 +70,9 @@ git remote -v To setup CI/CD pipeline in heroku we need 3 information
 HEROKU_EMAIL = ottizoubairi@gmail.com HEROKU_API_KEY = HEROKU_APP_NAME = 
 
 📑Documentation
+
+
 [Detailed Project Report,High Level Document,Low Level Document,Architecture Document,Wireframe Document] are in Github Project_Architecture Folder.
+
 
 Explanation Video:
