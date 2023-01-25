@@ -76,3 +76,5 @@ HEROKU_EMAIL = ottizoubairi@gmail.com HEROKU_API_KEY = HEROKU_APP_NAME =
 
 
 Explanation Video:
+
+https://www.linkedin.com/in/othmane-zoubairi-/
