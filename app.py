@@ -108,15 +108,15 @@ def predict():
     }
 
     if request.method == 'POST':
-        cost_for_two: int(request.form['cost_for_two'])  
-        Price_Range: int(request.form['Price_Range'])  
-        Votes: int(request.form['Votes'])
-        Has_Table_booking: request.form['Has_Table_booking'] 
-        Has_Online_delivery:request.form['Has_Online_delivery']
-        Is_delivering_now: request.form['Is_delivering_now'] 
-        Switch_to_order_menu: request.form['Switch_to_order_menu'] 
-        Rating_color: request.form['Rating_color'] 
-        Review: request.form['Review']
+        cost_for_two= int(request.form['cost_for_two'])  
+        Price_Range= int(request.form['Price_Range'])  
+        Votes=int(request.form['Votes'])
+        Has_Table_booking= request.form['Has_Table_booking'] 
+        Has_Online_delivery=request.form['Has_Online_delivery']
+        Is_delivering_now= request.form['Is_delivering_now'] 
+        Switch_to_order_menu= request.form['Switch_to_order_menu'] 
+        Rating_color= request.form['Rating_color'] 
+        Review= request.form['Review']
 
         
 
